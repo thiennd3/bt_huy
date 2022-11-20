@@ -29,7 +29,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> get(int key, PageRequest of) {
+    public List<Book> get(String key, PageRequest of) {
         return bookRepository.findAll(of).toList();
     }
 }

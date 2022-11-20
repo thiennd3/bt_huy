@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/accounts")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class AccountController {
 
     private final AccountService accountService;
 
     @PostMapping
-    public ResponseEntity create(Account account)
+    public ResponseEntity create(@RequestBody Account account)
     {
         return ResponseEntity.ok(null);
     }
     @PutMapping
-    public ResponseEntity update(Account account)
+    public ResponseEntity update(@RequestBody Account account)
     {
         return ResponseEntity.ok(null);
     }

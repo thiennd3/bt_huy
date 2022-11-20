@@ -16,7 +16,8 @@ import java.time.Instant;
 @NoArgsConstructor
 @Builder
 @Data
-public class Book {
+public class
+Book {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -40,6 +41,8 @@ public class Book {
     @Column(name = "image")
     private Integer image;
 
+    @Column(name = "release_date")
+    private Instant releaseDate;
     @CreatedDate
     @Column(name = "created_at")
     private Instant createdAt;

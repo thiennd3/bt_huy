@@ -10,28 +10,33 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/books")
 @AllArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class BookController {
 
     private final BookService bookService;
 
     @PostMapping
-    public ResponseEntity create(Book book) {
+    @CrossOrigin("http://localhost:3000")
+    public ResponseEntity create(@RequestBody Book book) {
         return ResponseEntity.ok(bookService.create(book));
     }
 
     @PutMapping()
-    public ResponseEntity update(Book book) {
+    @CrossOrigin("http://localhost:3000")
+    public ResponseEntity update(@RequestBody Book book) {
         return ResponseEntity.ok(bookService.update(book));
     }
 
     @DeleteMapping
+    @CrossOrigin("http://localhost:3000")
     public void delete(int id) {
         bookService.delete(id);
 
     }
 
     @GetMapping()
-    public ResponseEntity filter(@RequestParam("page") int page, @RequestParam("limit") int limit, @RequestParam("key_sreach") int key) {
+    @CrossOrigin("http://localhost:3000")
+    public ResponseEntity filter(@RequestParam("page") int page, @RequestParam("limit") int limit, @RequestParam("key_search") String key) {
         return ResponseEntity.ok(bookService.get(key, PageRequest.of(page,limit)));
     }
 }

@@ -14,5 +14,5 @@ public interface BookService {
 
     Book update(Book book);
 
-    List<Book> get(int key, PageRequest of);
+    List<Book> get(String key, PageRequest of);
 }
